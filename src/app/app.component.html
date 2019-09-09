@@ -1,0 +1,33 @@
+<style>
+  .square {
+    height: 20px;
+    width: 20px;
+    background-color: red; 
+  }
+  .focussed {
+    height: 20px;
+    width: 20px;
+    background-color: yellow;
+  }
+</style>
+
+<table style="border-collapse: collapse">
+  <tr *ngFor="let mrow of MRows">
+    <td *ngFor="let mcol of mrow" style="margin: 0px; padding: 0px">
+      <ng-template *ngIf ="mcol.isDot;then showDot; else showfocussed">
+
+      </ng-template>
+      <ng-template #showDot>
+        <div>
+            <img src="\assets\turtle.ico" style="width: 15px; height: 15px;align-content: center">
+        </div>
+      </ng-template>
+      <ng-template #showfocussed>
+          
+        <div *ngIf = "mcol.isFocussed" class="focussed">
+            <img src="\assets\mario.ico" style="width: 15px; height: 15px; align-content: center">
+        </div>
+      </ng-template>
+    </td>
+  </tr>
+</table>
